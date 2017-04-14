@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Retrofit Example</string>
+    <string name="try_again">Something went wrong!</string>
+    <string name="title_activity_login">LoginActivity</string>
+</resources>
