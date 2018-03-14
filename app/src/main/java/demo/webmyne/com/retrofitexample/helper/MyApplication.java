@@ -42,7 +42,7 @@ public class MyApplication extends Application {
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .build();
         retrofit = new Retrofit.Builder()
-                .baseUrl(ApiConstant.BASE_JOB_URL)
+                .baseUrl(ApiConstant.BASE_URL)
                 .client(okHttpClient)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

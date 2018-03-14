@@ -1,5 +1,6 @@
 package demo.webmyne.com.retrofitexample.api;
 
+import demo.webmyne.com.retrofitexample.api.model.TenderResponse;
 import demo.webmyne.com.retrofitexample.api.model.job.JobRequest;
 import demo.webmyne.com.retrofitexample.api.model.job.JobResponse;
 import demo.webmyne.com.retrofitexample.api.model.login.LoginRequest;
@@ -17,6 +18,9 @@ import retrofit2.http.Query;
  */
 
 public interface ApiCalling {
+    @GET(ApiConstant.getTender)
+    Call<TenderResponse> getTender(@Path("id") int  id, @Path("startdate") String  startdate, @Path("lastdate") String  lastdate);
+
     @GET(ApiConstant.getTopMovie)
     Call<MyResp> getTopMovies(@Query("api_key") String apiKey);
 
