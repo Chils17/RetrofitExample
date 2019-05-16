@@ -24,11 +24,11 @@ public class GetLogin {
     private OnGetLogin onGetLogin;
     private LoginRequest loginRequest;
 
-    public GetLogin(Context context, OnGetLogin onGetLogin,LoginRequest loginRequest) {
+    public GetLogin(Context context, OnGetLogin onGetLogin, LoginRequest loginRequest) {
         progressBarHelper = new ProgressBarHelper(context, false);
         this.onGetLogin = onGetLogin;
-        this.loginRequest= loginRequest;
-        this.context=context;
+        this.loginRequest = loginRequest;
+        this.context = context;
         call();
     }
 
@@ -41,13 +41,10 @@ public class GetLogin {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 progressBarHelper.hideProgressDialog();
                 if (response.body() != null) {
-                    Log.e("res",Function.jsonString(response.body()));
-                    if (response.body().getResponseCode()==1)
-                    {
+                    Log.e("res", Function.jsonString(response.body()));
+                    if (response.body().getResponseCode() == 1) {
                         onGetLogin.onSuccess(response.body().getData());
-                    }
-                    else
-                    {
+                    } else {
                         onGetLogin.onServerError(response.body().getResponseMessage());
                     }
 
@@ -68,7 +65,9 @@ public class GetLogin {
 
     public interface OnGetLogin {
         void onSuccess(User data);
+
         void onFail();
-void onServerError(String responseMessage);
+
+        void onServerError(String responseMessage);
     }
 }
